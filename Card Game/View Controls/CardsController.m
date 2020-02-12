@@ -159,13 +159,13 @@ void moveUp(){
   hit.hidden = YES;
   stay.hidden = YES;
    
-  [house1 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];//if your images extension is .png than no need to write extension of an image..
+  [house1 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];
   [self.view addSubview:house1];
   hPointInt = hPointInt + deckValues[deckArray[temp]];
   moveUp();
    
   if (hPointInt < 17) {
-    [house3 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];//if your images extension is .png than no need to write extension of an image..
+    [house3 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];
     [self.view addSubview:house3];
     aceCheckerHouse();
     hPointInt = hPointInt + deckValues[deckArray[temp]];
@@ -175,7 +175,7 @@ void moveUp(){
    
    
   if (hPointInt < 17) {
-    [house4 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];//if your images extension is .png than no need to write extension of an image..
+    [house4 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];
     [self.view addSubview:house4];
     aceCheckerHouse();
     hPointInt = hPointInt + deckValues[deckArray[temp]];
