@@ -175,12 +175,22 @@ void moveUp(){
    
    
   if (hPointInt < 17) {
-    [house4 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];
-    [self.view addSubview:house4];
-    aceCheckerHouse();
-    hPointInt = hPointInt + deckValues[deckArray[temp]];
-    moveUp();
-    [self bustCheckHouse];
+      [house4 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];
+      [self.view addSubview:house4];
+      aceCheckerHouse();
+      hPointInt = hPointInt + deckValues[deckArray[temp]];
+      moveUp();
+      [self bustCheckHouse];
+      }
+if (hPointInt < 17) {
+    infoText.text = [NSString stringWithFormat:@"YOU WIN!"];
+    reset.hidden = NO;
+    infoText.textColor = [UIColor greenColor];
+    pPoint.textColor = [UIColor greenColor];
+    infoText.hidden = NO;
+    hPoint.text = [NSString stringWithFormat:@"%d", hPointInt];
+    hPoint.textColor = [UIColor redColor];
+    hPoint.hidden = NO;
   } else if (hPointInt >= 17) {
     if ([self bustCheckHouse] == 0) {
       if (hPointInt > pPointInt) {
