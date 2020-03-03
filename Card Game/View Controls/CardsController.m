@@ -109,10 +109,13 @@ void moveUp(){
   house3.image = nil;
   house4.image = nil;
     pPointInt = 0;
-  [self.view addSubview:player1];
-    pPointInt = pPointInt + deckValues[deckArray[temp]];
-    moveUp();
-     
+
+    
+    [player1 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];
+      [self.view addSubview:player1];
+      pPointInt = pPointInt + deckValues[deckArray[temp]];
+      moveUp();
+       
     [player2 setImage:[UIImage imageNamed:self.cards[deckArray[temp]]]];
     [self.view addSubview:player2];
     pPointInt = pPointInt + deckValues[deckArray[temp]];
@@ -183,6 +186,7 @@ void moveUp(){
       [self bustCheckHouse];
       }
 if (hPointInt < 17) {
+    if (hPointInt < pPointInt) {
     infoText.text = [NSString stringWithFormat:@"YOU WIN!"];
     reset.hidden = NO;
     infoText.textColor = [UIColor greenColor];
@@ -191,6 +195,27 @@ if (hPointInt < 17) {
     hPoint.text = [NSString stringWithFormat:@"%d", hPointInt];
     hPoint.textColor = [UIColor redColor];
     hPoint.hidden = NO;
+    }
+    else if (hPointInt > pPointInt) {
+    infoText.text = [NSString stringWithFormat:@"YOU LOSE!"];
+    reset.hidden = NO;
+    infoText.textColor = [UIColor redColor];
+    pPoint.textColor = [UIColor redColor];
+    infoText.hidden = NO;
+    hPoint.text = [NSString stringWithFormat:@"%d", hPointInt];
+    hPoint.textColor = [UIColor greenColor];
+    hPoint.hidden = NO;
+    }
+    else {
+        infoText.text = [NSString stringWithFormat:@"PUSH!"];
+               reset.hidden = NO;
+               infoText.textColor = [UIColor blueColor];
+               pPoint.textColor = [UIColor blueColor];
+               infoText.hidden = NO;
+               hPoint.text = [NSString stringWithFormat:@"%d", hPointInt];
+               hPoint.textColor = [UIColor blueColor];
+               hPoint.hidden = NO;
+    }
   } else if (hPointInt >= 17) {
     if ([self bustCheckHouse] == 0) {
       if (hPointInt > pPointInt) {
@@ -254,7 +279,6 @@ void aceCheckerHouse(){
 }
 -(int)bustCheckHouse {
   if (hPointInt > 21) {
-    self.hitButton.center = CGPointMake(self.hide.center.x, self.hide.center.y);
     infoText.text = [NSString stringWithFormat:@"YOU WIN!"];
     infoText.hidden = NO;
     reset.hidden = NO;
