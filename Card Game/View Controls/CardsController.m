@@ -273,6 +273,7 @@ void aceCheckerHouse(){
     stay.hidden = YES;
     infoText.text = [NSString stringWithFormat:@"BUST!"];
     infoText.hidden = NO;
+    infoText.textColor = [UIColor redColor];
     reset.hidden = NO;
     pPoint.textColor = [UIColor redColor];
   }
@@ -281,6 +282,7 @@ void aceCheckerHouse(){
   if (hPointInt > 21) {
     infoText.text = [NSString stringWithFormat:@"YOU WIN!"];
     infoText.hidden = NO;
+    infoText.textColor = [UIColor greenColor];
     reset.hidden = NO;
     pPoint.textColor = [UIColor greenColor];
     hPoint.text = [NSString stringWithFormat:@"%d", hPointInt];
